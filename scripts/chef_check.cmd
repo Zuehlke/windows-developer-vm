@@ -1,8 +1,5 @@
 @echo off
 echo Checking Chef installation
-set OLD_PATH=%PATH%
-REM set PATH=C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0;C:\opscode\chefdk\bin;C:\opscode\chefdk\embedded\bin
-REM set PATH=C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0;C:\opscode\chefdk\bin;C:\opscode\chefdk\embedded\bin
 call chef-client -v
 @if errorlevel 1 goto install
 cd /D %~dp0
@@ -25,4 +22,3 @@ echo ERROR: cannot proceed without Chef
 goto done
 
 :done
-set PATH=%OLD_PATH%

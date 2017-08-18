@@ -1,6 +1,6 @@
 @echo off
 echo Checking Chef installation
-call chef-client -v
+call chef-client -v > NUL 2>&1
 @if errorlevel 1 goto install
 cd /D %~dp0
 goto done
@@ -10,8 +10,11 @@ echo Installing ChefDK
 cd /D %~dp0
 @if "%CHEFDK_INSTALLER%"=="" call download_chefdk.cmd
 @if not exist %CHEFDK_INSTALLER% call download_chefdk.cmd
+
+echo Starting ChefDK installation (this could take several minutes)...
 %CHEFDK_INSTALLER% /qb
 @if errorlevel 1 goto error
+echo ChefDK installed successfully
 goto done
 
 :error

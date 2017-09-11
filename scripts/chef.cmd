@@ -24,7 +24,7 @@ echo %START_PATH:~0,-1%
 echo ---------------------
 echo HERE CHEF IS CALLED!!
 echo ---------------------
-REM call chef-client -z --config client.rb -j %1
+call chef-client -z %START_PATH%/cookbooks/vm/recipes/default.rb
 
 goto done
 
